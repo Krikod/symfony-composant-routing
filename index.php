@@ -28,6 +28,33 @@
  * 
  */
 
+use Symfony\Component\Routing\Route;
+use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\RequestContext;
+
+require __DIR__ . '/vendor/autoload.php';
+
+$listRoute = new Route('/');
+$createRoute = new Route( '/create');
+$showRoute = new Route( '/show');
+
+$collection = new RouteCollection();
+$collection->add('list', $listRoute);
+$collection->add('create', $createRoute);
+$collection->add('show', $showRoute);
+
+$matcher = new UrlMatcher($collection, new RequestContext());
+
+//var_dump( $_SERVER);
+
+// S'il n'y a rien là-dedans, on est dans /:
+$pathInfo = $_SERVER['PATH_INFO'] ?? '/';
+
+
+
+$resultat = $matcher->match($pathInfo);
+var_dump( $resultat);
 /**
  * LES PAGES DISPONIBLES
  * ---------
