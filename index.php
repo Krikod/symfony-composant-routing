@@ -54,7 +54,7 @@ $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 
 try {
 	$resultat = $matcher->match($pathInfo);
-	var_dump( $resultat);
+	dump( $resultat);
 
 	$page = $resultat['_route'];
 	require_once "pages/$page.php";
