@@ -38,7 +38,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 $listRoute = new Route('/');
 $createRoute = new Route( '/create');
-$showRoute = new Route( '/show');
+$showRoute = new Route( '/show/{id}');
 
 $collection = new RouteCollection();
 $collection->add('list', $listRoute);
@@ -47,16 +47,20 @@ $collection->add('show', $showRoute);
 
 $matcher = new UrlMatcher($collection, new RequestContext());
 
+//$resultat = $matcher->match( '/show/100');
+//dd($resultat);
+
 //var_dump( $_SERVER);
 
 // S'il n'y a rien là-dedans, on est dans /:
 $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 
 try {
-	$resultat = $matcher->match($pathInfo);
-	dump( $resultat);
+	$currentRoute = $matcher->match($pathInfo); // = tab associatif avec tjr _route,
+	// mais aussi param de route
+	dump( $currentRoute);
 
-	$page = $resultat['_route'];
+	$page = $currentRoute['_route'];
 	require_once "pages/$page.php";
 
 } catch (ResourceNotFoundException $e) {
