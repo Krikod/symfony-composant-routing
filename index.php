@@ -34,8 +34,13 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Generator\UrlGenerator;
+use App\Controller\HelloController;
 
 require __DIR__ . '/vendor/autoload.php';
+//
+//$controller = new HelloController;
+//$controller->sayHello();
+//die();
 
 $listRoute = new Route('/');
 $createRoute = new Route( '/create', [], [], [], 'localhost', ['http'], ['POST', 'GET'] );

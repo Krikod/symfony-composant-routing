@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '9250b5f2822b5c4270b31b8a652a4a377a6e9712',
+    'reference' => '2fb064f154d4a792b0e12b5b89dd823b8a7ff666',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '9250b5f2822b5c4270b31b8a652a4a377a6e9712',
+      'reference' => '2fb064f154d4a792b0e12b5b89dd823b8a7ff666',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -82,12 +82,12 @@ private static $installed = array (
     ),
     'symfony/var-dumper' => 
     array (
-      'pretty_version' => 'v5.3.0',
-      'version' => '5.3.0.0',
+      'pretty_version' => 'v5.3.2',
+      'version' => '5.3.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '1d3953e627fe4b5f6df503f356b6545ada6351f3',
+      'reference' => '905a22c68b292ffb6f20d7636c36b220d1fba5ae',
     ),
   ),
 );
