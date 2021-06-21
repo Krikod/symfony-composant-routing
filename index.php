@@ -38,7 +38,7 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
 require __DIR__ . '/vendor/autoload.php';
 
 $listRoute = new Route('/');
-$createRoute = new Route( '/create');
+$createRoute = new Route( '/create', [], [], [], 'localhost', ['http'], ['POST', 'GET'] );
 //$showRoute = new Route( '/show/{id}', [], ['id' => '\d+']);
 $showRoute = new Route( '/show/{id<\d+>?100}');
 $helloRoute = new Route(
