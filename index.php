@@ -33,6 +33,7 @@ use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use Symfony\Component\Routing\Generator\UrlGenerator;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -46,6 +47,10 @@ $collection->add('create', $createRoute);
 $collection->add('show', $showRoute);
 
 $matcher = new UrlMatcher($collection, new RequestContext());
+$generator = new UrlGenerator($collection, new RequestContext());
+
+//dd($generator->generate('show', ['id' => 100]));
+//dd($generator->generate('create'));
 
 //$resultat = $matcher->match( '/show/100');
 //dd($resultat);
