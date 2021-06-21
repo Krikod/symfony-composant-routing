@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30020c8e-0a92-49b2-a68d-e860ace9ab5f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/hello.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/404.php" afterPath="$PROJECT_DIR$/pages/404.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/create.php" afterPath="$PROJECT_DIR$/pages/create.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/list.php" afterPath="$PROJECT_DIR$/pages/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/show.php" afterPath="$PROJECT_DIR$/pages/show.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,11 +21,21 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="22" />
+            <state relative-caret-position="207">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding>
                 <element signature="e#1607#1643#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hello.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/hello.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -81,11 +88,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/pages/list.php" />
         <option value="$PROJECT_DIR$/pages/404.php" />
         <option value="$PROJECT_DIR$/pages/create.php" />
         <option value="$PROJECT_DIR$/pages/show.php" />
+        <option value="$PROJECT_DIR$/pages/hello.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -201,12 +209,12 @@
       <option name="presentableId" value="Default" />
       <updated>1622894970529</updated>
       <workItem from="1622894971703" duration="10619000" />
-      <workItem from="1624003763762" duration="4324000" />
+      <workItem from="1624003763762" duration="5304000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14943000" />
+    <option name="totallyTimeSpent" value="15923000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -316,10 +324,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/hello.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="22" />
+        <state relative-caret-position="207">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="e#1607#1643#0#PHP" expanded="true" />
           </folding>

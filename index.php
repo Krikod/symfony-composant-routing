@@ -40,11 +40,14 @@ require __DIR__ . '/vendor/autoload.php';
 $listRoute = new Route('/');
 $createRoute = new Route( '/create');
 $showRoute = new Route( '/show/{id}');
+$helloRoute = new Route('/hello/{name}', ['name' => 'world', 'toto' => 42]);
+
 
 $collection = new RouteCollection();
 $collection->add('list', $listRoute);
 $collection->add('create', $createRoute);
 $collection->add('show', $showRoute);
+$collection->add( 'hello', $helloRoute);
 
 $matcher = new UrlMatcher($collection, new RequestContext());
 $generator = new UrlGenerator($collection, new RequestContext());
