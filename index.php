@@ -54,7 +54,9 @@ $collection->add('create', $createRoute);
 $collection->add('show', $showRoute);
 $collection->add( 'hello', $helloRoute);
 
-$matcher = new UrlMatcher($collection, new RequestContext());
+//dump( $_SERVER);
+
+$matcher = new UrlMatcher($collection, new RequestContext('', $_SERVER['REQUEST_METHOD']));
 $generator = new UrlGenerator($collection, new RequestContext());
 
 //dd($generator->generate('show', ['id' => 100]));
