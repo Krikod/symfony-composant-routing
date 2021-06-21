@@ -39,8 +39,13 @@ require __DIR__ . '/vendor/autoload.php';
 
 $listRoute = new Route('/');
 $createRoute = new Route( '/create');
-$showRoute = new Route( '/show/{id}');
-$helloRoute = new Route('/hello/{name}', ['name' => 'world', 'toto' => 42]);
+//$showRoute = new Route( '/show/{id}', [], ['id' => '\d+']);
+$showRoute = new Route( '/show/{id<\d+>?100}');
+$helloRoute = new Route(
+	'/hello/{name}',
+	['name' => 'world', 'toto' => 42],
+//	['name' => '.{3}']
+	);
 
 
 $collection = new RouteCollection();
