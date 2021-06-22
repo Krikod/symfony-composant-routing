@@ -4,11 +4,12 @@ use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 return function(RoutingConfigurator $configurator) {
 	$configurator
+		// On peut virer les controlleurs des Defaults.
 		->add('hello', '/hello/{name}')
 		->defaults([
-			'name' => 'world',
-			'controller' => 'App\Controller\HelloController@sayHello'
+			'name' => 'world'
 		])
+		->controller('App\Controller\HelloController@sayHello')
 
 		->add('list', '/')
 		->defaults(['controller' => 'App\Controller\TaskController@index'

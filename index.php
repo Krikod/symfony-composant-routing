@@ -94,8 +94,8 @@ $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 
 try {
 	$currentRoute = $matcher->match($pathInfo);
-
-	$controller = $currentRoute['controller']; // Callable
+//dd( $currentRoute);
+	$controller = $currentRoute['_controller']; // Callable
 
 	$currentRoute['generator'] = $generator;
 
