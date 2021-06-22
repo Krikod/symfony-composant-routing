@@ -38,6 +38,7 @@ use App\Controller\HelloController;
 use App\Controller\TaskController;
 use Symfony\Component\Routing\Loader\PhpFileLoader;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Routing\Loader\YamlFileLoader;
 
 require __DIR__ . '/vendor/autoload.php';
 //
@@ -64,10 +65,12 @@ require __DIR__ . '/vendor/autoload.php';
 
 //$collection = new RouteCollection();
 
-$loader = new PhpFileLoader(new FileLocator(__DIR__. '/config'));
+//$loader = new PhpFileLoader(new FileLocator(__DIR__. '/config'));
+//$collection = $loader->load('routes.php');
 
-$collection = $loader->load('routes.php');
-//
+$loader = new YamlFileLoader(new FileLocator(__DIR__. '/config'));
+$collection = $loader->load('routes.yaml');
+
 //$collection->add('list', $listRoute);
 //$collection->add('create', $createRoute);
 //$collection->add('show', $showRoute);

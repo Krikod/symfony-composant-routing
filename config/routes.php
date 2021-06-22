@@ -13,7 +13,7 @@ return function(RoutingConfigurator $configurator) {
 		->add('list', '/')
 		->defaults(['controller' => 'App\Controller\TaskController@index'
 		])
-	
+
 		->add('create', '/create')
 		->defaults(['controller' => 'App\Controller\TaskController@create'])
 		->host('localhost')
