@@ -35,6 +35,7 @@ use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use App\Controller\HelloController;
+use App\Controller\TaskController;
 
 require __DIR__ . '/vendor/autoload.php';
 //
@@ -53,10 +54,15 @@ $helloRoute = new Route(
 
 //call_user_func($callable);
 
-$listRoute = new Route('/');
-$createRoute = new Route( '/create', [], [], [], 'localhost', ['http'], ['POST', 'GET'] );
+$listRoute = new Route('/',
+	['controller' => [new TaskController(), 'index']]);
+$createRoute = new Route( '/create', [
+	'controller' => [new TaskController(), 'create']
+], [], [], 'localhost', ['http'], ['POST', 'GET'] );
 //$showRoute = new Route( '/show/{id}', [], ['id' => '\d+']);
-$showRoute = new Route( '/show/{id<\d+>?100}');
+$showRoute = new Route( '/show/{id<\d+>?100}',
+	['controller' => [new TaskController(), 'show']]
+	);
 
 
 $collection = new RouteCollection();
@@ -87,6 +93,8 @@ try {
 //	dump( $currentRoute);
 
 	$controller = $currentRoute['controller']; // Callable
+	$currentRoute['generator'] = $generator;
+
 	call_user_func($controller, $currentRoute);
 
 //	die();
