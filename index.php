@@ -36,6 +36,8 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use App\Controller\HelloController;
 use App\Controller\TaskController;
+use Symfony\Component\Routing\Loader\PhpFileLoader;
+use Symfony\Component\Config\FileLocator;
 
 require __DIR__ . '/vendor/autoload.php';
 //
@@ -45,26 +47,31 @@ require __DIR__ . '/vendor/autoload.php';
 
 //$callable = [new HelloController, 'sayHello'];
 
-$helloRoute = new Route(
-	'/hello/{name}',
-//	['name' => 'world', 'toto' => 42],
-	['name' => 'world', 'controller' => 'App\Controller\HelloController@sayHello']
-//	['name' => '.{3}']
-	);
+//$helloRoute = new Route(
+//	'/hello/{name}',
+////	['name' => 'world', 'toto' => 42],
+//	['name' => 'world', 'controller' => 'App\Controller\HelloController@sayHello']
+////	['name' => '.{3}']
+//	);
 
 //call_user_func($callable);
 
-$listRoute = new Route('/', ['controller' => 'App\Controller\TaskController@index']);
-$createRoute = new Route( '/create', ['controller' => 'App\Controller\TaskController@create'], [], [], 'localhost', ['http'], ['POST', 'GET'] );
+//$listRoute = new Route('/', ['controller' => 'App\Controller\TaskController@index']);
+//$createRoute = new Route( '/create', ['controller' => 'App\Controller\TaskController@create'], [], [], 'localhost', ['http'], ['POST', 'GET'] );
 //$showRoute = new Route( '/show/{id}', [], ['id' => '\d+']);
-$showRoute = new Route( '/show/{id<\d+>?100}',	['controller' => 'App\Controller\TaskController@show']
-	);
+//$showRoute = new Route( '/show/{id<\d+>?100}',	['controller' => 'App\Controller\TaskController@show']
+//	);
 
-$collection = new RouteCollection();
-$collection->add('list', $listRoute);
-$collection->add('create', $createRoute);
-$collection->add('show', $showRoute);
-$collection->add( 'hello', $helloRoute);
+//$collection = new RouteCollection();
+
+$loader = new PhpFileLoader(new FileLocator(__DIR__. '/config'));
+
+$collection = $loader->load('routes.php');
+//
+//$collection->add('list', $listRoute);
+//$collection->add('create', $createRoute);
+//$collection->add('show', $showRoute);
+//$collection->add( 'hello', $helloRoute);
 
 //dump( $_SERVER);
 
