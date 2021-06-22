@@ -42,15 +42,21 @@ require __DIR__ . '/vendor/autoload.php';
 //$controller->sayHello();
 //die();
 
+//$callable = [new HelloController, 'sayHello'];
+
+$helloRoute = new Route(
+	'/hello/{name}',
+//	['name' => 'world', 'toto' => 42],
+	['name' => 'world', 'controller' => [new HelloController, 'sayHello']],
+//	['name' => '.{3}']
+	);
+
+//call_user_func($callable);
+
 $listRoute = new Route('/');
 $createRoute = new Route( '/create', [], [], [], 'localhost', ['http'], ['POST', 'GET'] );
 //$showRoute = new Route( '/show/{id}', [], ['id' => '\d+']);
 $showRoute = new Route( '/show/{id<\d+>?100}');
-$helloRoute = new Route(
-	'/hello/{name}',
-	['name' => 'world', 'toto' => 42],
-//	['name' => '.{3}']
-	);
 
 
 $collection = new RouteCollection();
@@ -78,9 +84,16 @@ $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 try {
 	$currentRoute = $matcher->match($pathInfo); // = tab associatif avec tjr _route,
 	// mais aussi param de route
-	dump( $currentRoute);
+//	dump( $currentRoute);
 
-	$page = $currentRoute['_route'];
+	$controller = $currentRoute['controller']; // Callable
+	call_user_func($controller, $currentRoute);
+
+//	die();
+
+		$page = $currentRoute['_route'];
+
+
 	require_once "pages/$page.php";
 
 } catch (ResourceNotFoundException $e) {
