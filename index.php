@@ -48,20 +48,16 @@ require __DIR__ . '/vendor/autoload.php';
 $helloRoute = new Route(
 	'/hello/{name}',
 //	['name' => 'world', 'toto' => 42],
-	['name' => 'world', 'controller' => [new HelloController, 'sayHello']],
+	['name' => 'world', 'controller' => 'App\Controller\HelloController@sayHello']
 //	['name' => '.{3}']
 	);
 
 //call_user_func($callable);
 
-$listRoute = new Route('/',
-	['controller' => [new TaskController(), 'index']]);
-$createRoute = new Route( '/create', [
-	'controller' => [new TaskController(), 'create']
-], [], [], 'localhost', ['http'], ['POST', 'GET'] );
+$listRoute = new Route('/', ['controller' => 'App\Controller\TaskController@index']);
+$createRoute = new Route( '/create', ['controller' => 'App\Controller\TaskController@create'], [], [], 'localhost', ['http'], ['POST', 'GET'] );
 //$showRoute = new Route( '/show/{id}', [], ['id' => '\d+']);
-$showRoute = new Route( '/show/{id<\d+>?100}',
-	['controller' => [new TaskController(), 'show']]
+$showRoute = new Route( '/show/{id<\d+>?100}',	['controller' => 'App\Controller\TaskController@show']
 	);
 
 
@@ -95,14 +91,18 @@ try {
 	$controller = $currentRoute['controller']; // Callable
 	$currentRoute['generator'] = $generator;
 
-	call_user_func($controller, $currentRoute);
+	$className = substr($controller, 0, strpos($controller, '@'));
+//	dd( $className);
+	$methodName = substr($controller, strpos($controller, '@') + 1);
+//dd( $methodName);
 
-//	die();
+	$instance = new $className();
+//dd( $instance);
+	call_user_func([$instance, $methodName], $currentRoute);
 
-		$page = $currentRoute['_route'];
-
-
-	require_once "pages/$page.php";
+////	die();
+//		$page = $currentRoute['_route'];
+//	require_once "pages/$page.php";
 
 } catch (ResourceNotFoundException $e) {
 		require 'pages/404.php';
