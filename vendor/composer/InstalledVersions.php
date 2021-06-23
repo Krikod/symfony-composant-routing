@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '1685f8acd477c985681d95714d3e387c69b99401',
+    'reference' => '6ab66b16d10347b982b137f68491c7874b6185cd',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,34 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '1685f8acd477c985681d95714d3e387c69b99401',
+      'reference' => '6ab66b16d10347b982b137f68491c7874b6185cd',
+    ),
+    'doctrine/annotations' => 
+    array (
+      'pretty_version' => '1.13.1',
+      'version' => '1.13.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e6e7b7d5b45a2f2abc5460cc6396480b2b1d321f',
+    ),
+    'doctrine/lexer' => 
+    array (
+      'pretty_version' => '1.2.1',
+      'version' => '1.2.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e864bbf5904cb8f5bb334f99209b48018522f042',
+    ),
+    'psr/cache' => 
+    array (
+      'pretty_version' => '3.0.0',
+      'version' => '3.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'aa5030cfa5405eccfdcb1083ce040c2cb8d253bf',
     ),
     'symfony/config' => 
     array (

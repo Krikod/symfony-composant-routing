@@ -39,6 +39,11 @@ use App\Controller\TaskController;
 use Symfony\Component\Routing\Loader\PhpFileLoader;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Routing\Loader\YamlFileLoader;
+use Symfony\Component\Routing\Loader\AnnotationFileLoader;
+use App\Loader\CustomAnnotationClassLoader;
+use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use Symfony\Component\Routing\Loader\AnnotationDirectoryLoader;
 
 require __DIR__ . '/vendor/autoload.php';
 //
@@ -65,11 +70,23 @@ require __DIR__ . '/vendor/autoload.php';
 
 //$collection = new RouteCollection();
 
+//Loader PHP
 //$loader = new PhpFileLoader(new FileLocator(__DIR__. '/config'));
 //$collection = $loader->load('routes.php');
 
-$loader = new YamlFileLoader(new FileLocator(__DIR__. '/config'));
-$collection = $loader->load('routes.yaml');
+//Loader Yaml
+//$loader = new YamlFileLoader(new FileLocator(__DIR__. '/config'));
+//$collection = $loader->load('routes.yaml');
+
+//Loader Annotations
+$classLoader = require __DIR__.'/vendor/autoload.php';
+AnnotationRegistry::registerLoader([$classLoader, 'loadClass']);
+
+$loader = new AnnotationDirectoryLoader(
+	new FileLocator(__DIR__.'/src/Controller'),
+	new CustomAnnotationClassLoader(new AnnotationReader())
+);
+$collection = $loader->load(__DIR__.'/src/Controller');
 
 //$collection->add('list', $listRoute);
 //$collection->add('create', $createRoute);
@@ -77,6 +94,9 @@ $collection = $loader->load('routes.yaml');
 //$collection->add( 'hello', $helloRoute);
 
 //dump( $_SERVER);
+
+
+
 
 $matcher = new UrlMatcher($collection, new RequestContext('', $_SERVER['REQUEST_METHOD']));
 $generator = new UrlGenerator($collection, new RequestContext());
